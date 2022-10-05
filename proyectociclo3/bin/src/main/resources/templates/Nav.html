@@ -1,0 +1,27 @@
+<nav th:fragment="nav" class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container-fluid">
+      <img class="img-fluid" width="60px" height="60px" th:src="@{img/Tlogo.png}" alt="Logo" >
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample05">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item ms-4">
+            <a class="linkNavegacion nav-link fs-5" th:href="@{/}">Inicio</a>
+          </li>
+          <li class="nav-item me-3 ms-4">
+            <a class="linkNavegacion nav-link fs-5" th:href="@{/Ver}">Ver</a>
+          </li>
+          <li class="nav-item">
+            <a class="linkNavegacion nav-link  fs-5" th:href="@{/Agregar}">Agregar</a>
+          </li>
+        </ul>
+          <span class="me-3"><h7 class="text-muted nav-item fs-4">MTIC | UTP</h7></span>
+      </div>
+    </div>
+</nav>
+
+<!-- Button trigger modal -->
+
+

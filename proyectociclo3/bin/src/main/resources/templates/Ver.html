@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="https://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TenisTIC</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link th:href="@{css/home.css}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  </head>
+  <body>
+
+    <nav th:replace="Nav :: nav"></nav>
+
+    <div class="container text-center mt-4">
+      <form class="w-auto" th:action="@{/Busqueda}" method="get">
+        <div class="input-group mb-4 w-25 mx-auto">
+          <input type="text" class="form-control" placeholder="Buscar..." name="keyword" th:value="${keyword}" >
+          <button class="btn btn-outline-danger" type="submit" id="button-addon2">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>      
+      </form>
+      <table th:if= "${!listaTenis.empty}" class="table table-striped" >
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Marca</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Tamaño</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col" class="text-muted">Cambios</th>
+            <th scope="col" class="text-muted">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="tenis:${listaTenis}" th:field="${tenis}">
+            <td><span th:text="${tenis.marca}"></span></td>
+            <td><span th:text="${tenis.nombre}"></span></td>
+            <td><span th:text="${tenis.tamanio}"></span></td>
+            <td><span th:text="${tenis.precio}"></span></td>
+            <td><span th:text="${tenis.cantidad}"></span></td>
+            <td>
+              <a class="btn btn-danger mb-1" th:href="@{'/Remover/' + ${tenis.id}}"><i class="bi bi-dash-lg"></i></a>
+              <a class="btn btn-danger mb-1" th:href="@{'/Adicionar/' + ${tenis.id}}"><i class="bi bi-plus-lg"></i></a>
+            </td>
+            <td>
+              <a class="btn btn-warning mb-1" th:href="@{'/Editar/' + ${tenis.id}}"><i class="bi bi-pencil-square"></i></a>
+              <a class="btn btn-danger mb-1" th:href="@{'/Eliminar/' + ${tenis.id}}"><i class="bi bi-x-lg"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4 th:if= "${listaTenis.empty}">
+        <div class="alert alert-danger" role="alert">
+          No hay elementos!
+        </div>
+      </h4>
+    </div>
+
+    <footer th:replace="Footer :: footer"></footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

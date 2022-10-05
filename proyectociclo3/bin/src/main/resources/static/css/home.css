@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#linkCorreo {
+  color: white;
+}
+
+#linkCorreo:hover {
+  color: rgb(225, 58, 58);
+}
+
+.linkNavegacion:hover {
+  color: rgb(187, 45, 59);
+}
+
+#tenisTICText {
+  text-align: center;
+  width: 200px;
+  border-radius: 5px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+#contenedorTextoFooter {
+  font-size: 10px;
+}
+
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgb(237, 237, 237);
+}
+
+table{
+  font-weight: lighter;
+}
+

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="https://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TenisTIC</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link th:href="@{css/home.css}" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav th:replace="Nav :: nav"></nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+                <div class="card-header">
+                    <h2 class="text-center fw-light">Agregar Tenis</h2>
+                </div>
+
+                <div class="card-body">
+                    <form th:action="@{/Guardar}" th:object="${tenis}" method="post">
+                        <div class="row">
+                            <div class="form-group col">
+                                <label for="nombre" class="mb-2  fw-light">Nombre</label>
+                                <input class="form-control" id="nombre" type="text" name="nombre" th:field="*{nombre}">
+                            </div>
+                            <div class="form-group col">
+                                <label for="marca" class="mb-2 fw-light">Marca</label>
+                                <input class="form-control" id="marca" type="text" name="marca" th:field="*{marca}">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="form-group col">
+                                <label for="tamanio" class="mb-2 fw-light">Tamaño</label>
+                                <input class="form-control" id="tamanio" type="number" name="tamanio" th:field="*{tamanio}">
+                            </div>
+                            <div class="form-group col">
+                                <label for="cantidad" class="mb-2 fw-light">Cantidad</label>
+                                <input class="form-control" id="cantidad" type="number" name="cantidad" th:field="*{cantidad}">
+                            </div>
+                            <div class="form-group col">
+                                <label for="precio" class="mb-2 fw-light">Precio</label>
+                                <input class="form-control" id="precio" type="text" name="precio" th:field="*{precio}">
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <button class="btn btn-danger" type="submit">
+                                Agregar
+                            </button>
+                        </div>
+                        
+                        
+                    </form>
+                </div>
+                <div class="card-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer th:replace="Footer :: footer"></footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
